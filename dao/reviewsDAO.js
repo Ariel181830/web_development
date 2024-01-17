@@ -9,7 +9,7 @@ export default class ReviewsDAO {
             return
         }
         try {
-            reviews = await conn.db("reviews").connection("reviews")
+            reviews = await conn.db("reviews").collection("reviews")
         }catch(e){
             console.error(`Unable to establish collection handles in userDAO: ${e}`)
         }
@@ -51,5 +51,26 @@ export default class ReviewsDAO {
         }
     }
 
+    static async deleteReview(reviewId) {
+        try {
+            const deleteResponse = await reviews.deleteOne({
+                _id: ObjectId(reviewId),
+            })
+            return deleteResponse
+        }catch(e) {
+            console.error(`Unable to delete: ${e}`)
+            return { error:e }
+        }
+    }
+
+    static async getReviewByMovieId(movieId) {
+        try {
+            const cursor = await reviews.find({movieId: parseInt(movieId)})
+            return cursor.toArray()
+        } catch(e) {
+            console.error(`Unable to get review: ${e}`)
+            return {error: e}
+        }
+    }
 
 }
