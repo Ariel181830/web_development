@@ -1,6 +1,6 @@
-import express from "express"; //Express framework to create web server
-import cors from "cors"; // CORS middleware for Cross-Orighin Resource Sharing 
-import reviews from "./api/reviews.route.js" // import the router for handleing reviews from a separate file
+import express from "express"
+import cors from "cors"
+import reviews from "./api/reviews.route.js" 
 
 // get access to express
 const app = express(); // create web server
