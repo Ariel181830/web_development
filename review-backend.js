@@ -6,7 +6,6 @@ const MongoClient = mongodb.MongoClient;
 const mongo_username = process.env['MONGO_USERNAME']
 const mongo_password = process.env['MONGO_PASSWORD']
 const uri = `mongodb+srv://${mongo_username}:${mongo_password}@test.qag9dty.mongodb.net/?retryWrites=true&w=majority`
-
 const port = 8080
 
 MongoClient.connect(

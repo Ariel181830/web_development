@@ -1,5 +1,5 @@
 import mongodb from "mongodb"
-const ObjectId = mongodb.ObjectID // look up record by id
+const ObjectId = mongodb.ObjectId // look up record by id
 
 let reviews // reference
 
@@ -41,12 +41,12 @@ export default class ReviewsDAO {
     static async updateReview(reviewId, user, review) {
         try{
             const updateResponse = await reviews.updateOne(
-                {_id: ObjectId(reviewId)},
+                {_id: new ObjectId(reviewId)},
                 {$set : {user: user, review: review}}
             )
             return updateResponse
         } catch (e) {
-            console.error(`Unable to updare review: ${e}`)
+            console.error(`Unable to update review: ${e}`)
             return {error: e}
         }
     }
@@ -54,7 +54,7 @@ export default class ReviewsDAO {
     static async deleteReview(reviewId) {
         try {
             const deleteResponse = await reviews.deleteOne({
-                _id: ObjectId(reviewId),
+                _id: new ObjectId(reviewId),
             })
             return deleteResponse
         }catch(e) {

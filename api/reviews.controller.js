@@ -63,7 +63,7 @@ export default class ReviewsController {
             if(error){
                 res.status(400).json({error})
             }
-            if(reviewResponse.modifedCount === 0){ // nothing was changed
+            if(reviewResponse.modifiedCount === 0){ // nothing was changed
                 throw new Error(
                     "unable to update review", // go to the catch block
                 )

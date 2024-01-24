@@ -3,8 +3,8 @@ Content-Type: application/json
 
 # Request Body (if applicable)
 {
-  "movieId": "4646",
-  "user": "miku",
-  "review" :"yabai"
+  "movieId": 955916,
+  "user": "min",
+  "review" :"good"
 
 }
